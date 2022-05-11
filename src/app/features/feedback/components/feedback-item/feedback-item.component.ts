@@ -6,13 +6,11 @@ import { Feedback } from '../../models';
   templateUrl: './feedback-item.component.html',
   styleUrls: ['./feedback-item.component.scss'],
 })
-export class FeedbackItemComponent implements OnInit {
+export class FeedbackItemComponent {
   @Input() feedback: Feedback;
   @Output() upvote: EventEmitter<void> = new EventEmitter();
 
   constructor() {}
-
-  ngOnInit(): void {}
 
   upvoteClicked() {
     this.upvote.emit();
