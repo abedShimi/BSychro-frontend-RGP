@@ -4,6 +4,9 @@ on:
   push:
     branches: [master]
 
+env:
+  GITHUB_TOKEN: ${{ github.token }}
+
 jobs:
   build:
     name: Build & Test
@@ -50,5 +53,3 @@ jobs:
       - name: Deploy
         run: |
           npm run deploy
-        with:
-          github-token: ${{ secrets.TOKEN_GITHUB_ACTION }}
