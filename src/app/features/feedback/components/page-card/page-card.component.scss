@@ -1,0 +1,18 @@
+.page-card {
+  background-color: #4158d0;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
+  color: white;
+  min-height: 120px;
+  position: relative;
+}
+
+.page-card p {
+  position: absolute;
+  left: 20px;
+  bottom: 10px;
+}

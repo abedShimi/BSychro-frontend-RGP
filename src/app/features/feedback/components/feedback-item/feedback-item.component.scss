@@ -1,0 +1,25 @@
+p {
+  padding: 0;
+  margin: 0px;
+}
+
+.fa-comment:hover {
+  font-size: 20px;
+}
+
+.upvote:hover {
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+::ng-deep .tooltip {
+  max-width: 200px !important;
+}
+
+::ng-deep .tooltip-class .tooltip-inner {
+  background-color: rgb(211, 211, 211);
+}
+
+::ng-deep .tooltip-class.bs-tooltip-top .tooltip-arrow::before {
+  border-top-color: rgb(211, 211, 211);
+}

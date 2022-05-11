@@ -1,0 +1,43 @@
+<div class="container-fluid my-5">
+  <div class="row">
+    <div
+      class="col-2 my-auto upvote"
+      style="display: flex; flex-direction: column; align-items: center"
+      [ngbTooltip]="
+        !feedback.userVoted ? 'up vote this feedback' : 'remove up vote'
+      "
+      placement="top"
+      tooltipClass="tooltip-class"
+      (click)="upvoteClicked()"
+      [ngStyle]="{ color: feedback.userVoted ? 'blue' : 'black' }"
+    >
+      <i class="fas fa-angle-up"></i> {{ feedback.upvotes }}
+    </div>
+    <div class="col-8">
+      <div class="row">
+        <div class="col-12">
+          <p>
+            <b>{{ feedback.category }}</b>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>{{ feedback.details }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-2 my-auto">
+      <span
+        ngbTooltip="add a comment"
+        [tooltipClass]="'tooltip-class'"
+        placement="top"
+        style="width: fit-content"
+      >
+        <i style="color: rgb(201, 201, 201)" class="fas fa-comment"></i>
+      </span>
+      &nbsp;
+      {{ feedback.commentsCount }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-3">
+      <app-page-card title="Feedback Board"></app-page-card>
+    </div>
+    <div class="col-9">
+      <div class="row m-0">
+        <div
+          class="col-12 rounded p-3 text-white"
+          style="background-color: navy"
+        >
+          <span>Sort by: &nbsp;</span>
+          <select [(ngModel)]="sortOption" (ngModelChange)="sort()">
+            <option [value]="1">Most Upvotes</option>
+            <option [value]="2">Least Upvotes</option>
+            <option [value]="3">Most Comments</option>
+            <option [value]="4">Least Comments</option>
+          </select>
+
+          <input
+            [(ngModel)]="searchText"
+            (ngModelChange)="search()"
+            style="margin-left: 20px !important"
+          />
+          <i class="fas fa-search" style="margin-left: -27px; color: navy"></i>
+        </div>
+      </div>
+      <app-feedback-item
+        *ngFor="let feedback of searchedFeedBacks"
+        [feedback]="feedback"
+        (upvote)="upvote(feedback)"
+      ></app-feedback-item>
+    </div>
+  </div>
+</div>
