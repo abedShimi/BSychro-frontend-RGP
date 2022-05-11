@@ -119,6 +119,9 @@
               "devServerTarget": "BSychro-frontend-RGP:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
