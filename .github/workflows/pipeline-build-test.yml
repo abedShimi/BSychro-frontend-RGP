@@ -25,11 +25,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Setup Node.js environment
-        uses: actions/setup-node@v1.4.2
-        env:
-        ACTIONS_ALLOW_UNSECURE_COMMANDS: "true"
-        with:
-          node-version: ${{ matrix.node-version }}
+        uses: actions/setup-node@3
 
       - name: Install Dependencies
         run: npm ci
