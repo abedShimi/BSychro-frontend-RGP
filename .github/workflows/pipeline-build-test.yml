@@ -4,9 +4,6 @@ on:
   push:
     branches: [master]
 
-env:
-  github-token: ${{ secrets.TOKEN_GITHUB_ACTION }}
-
 jobs:
   build:
     name: Build & Test
@@ -38,6 +35,10 @@ jobs:
       - name: Install karma chrome launcher plugin
         run: npm install -g @types/karma-chrome-launcher
 
+      - name: Lint
+        run: |
+          npm run lint
+
       - name: Run Unit Tests
         run: npm run ci:test
 
@@ -49,6 +50,23 @@ jobs:
 
       - name: List Files in Distribution Directory
         run: ls -R ./dist
+
+      - name: Conventional Changelog Action
+        id: changelog
+        uses: TriPSs/conventional-changelog-action@v3
+        with:
+          github-token: ${{ secrets.TOKEN_GITHUB_ACTION }}
+          output-file: "false"
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB_ACTION }}
+        with:
+          tag_name: ${{ steps.changelog.outputs.tag }}
+          release_name: ${{ steps.changelog.outputs.tag }}
+          body: ${{ steps.changelog.outputs.clean_changelog }}
 
       - name: Deploy
         run: |
