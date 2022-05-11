@@ -11,7 +11,7 @@
     "ci:clean": "rimraf ./dist",
     "ci:test": "ng test --watch=false --browsers=ChromeHeadless --code-coverage",
     "ci:build": "ng build --configuration production",
-    "deploy": "ng deploy --base-href=/BSychro-frontend-RGP/"
+    "deploy": "ng deploy --no-silent --base-href=/BSychro-frontend-RGP/"
   },
   "private": true,
   "dependencies": {
