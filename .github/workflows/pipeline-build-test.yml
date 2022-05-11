@@ -28,6 +28,8 @@ jobs:
         uses: actions/setup-node@v1.4.2
         with:
           node-version: ${{ matrix.node-version }}
+        env:
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: "true"
 
       - name: Install Dependencies
         run: npm ci
